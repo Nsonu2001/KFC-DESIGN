@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script type="text/javascript">
+        function Order(){
+        var costamer=document.getElementById("iblname").innerHTML=document.getElementById("name").value
+        var costemerdi=document.getElementById("iblno").innerHTML=document.getElementById("no").value
+        mils=""
+        milaamount=0
+        piza=document.getElementById("piza").value
+        kabab=document.getElementById("kabab").value
+        if(piza.checked){
+            mils=piza.value 
+            milaamount=258
+        }if(kabab.checked){
+        mils=kabab.value
+        milaamount=150
+        }
+
+         addmil="" 
+         add1=document.getElementById("add1")
+         add2=document.getElementById("add2")
+         if(add1.checked){
+            addmil+=add1.value+ '<br>'
+            addamount=100
+            milaamount=milaamount+addamount
+         }if(add2.checked){
+            addmil+=add2.value+ '<br>'
+            addamount=50  
+            milaamount=milaamount+addamount
+            
+         }
+         document.getElementById("iblmill").innerHTML=mils.value
+         document.getElementById("lbladd").innerHTML=addmil.value
+         document.getElementById("lblamount").innerHTML=milaamount.value
+
+        }
+
+    </script>
+</head>
+<body class="container-fluid">
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <header>
+        <img src="../images/docs/kfc.jpg" width="100%" height="250px">
+    </header>
+    <section>
+      
+        <div class="accordion" id="ban" >
+        <div class="accordion-item">
+            <div class="accordion-header">
+            <button class="w-100 m-2 btn btn-danger"data-bs-toggle="collapse" data-bs-target="#kfc" >costemer details</button>
+            </div>
+              <div class="accordion-collapse collapse" id="kfc" data-bs-parent="#ban">
+                <div class="accordion-body"></div>
+                <dl>
+                    <dt>costemer name</dt>
+                    <dd><input type="text"  class="text" id="name"></dd>
+                    <dt>costemer nomber</dt>
+                    <dd><input type="text" class="name" id="no"></dd>
+                </dl>
+                </div>
+              </div>      
+        </div>
+         <div class="accordion-item">
+            <div class="accordion-header">
+                <button class=" w-100 h-100 btn-primary" data-bs-target="#items" data-bs-toggle="collapse" data-bs-parent="#ban">items</button>
+                <div class="accordion-collapse collapse" id="items" data-bs-parent="#ban">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="accordion-header">
+                                    <img src="../images/docs/piza1.jpeg">
+                                    <div class="accordion-body">
+                                       <input type="radio" class="radio" name="mils" id="piza"><span>hot piza</span>
+                                       <span >&#8377;258</span>
+                                    </div>
+                               
+                                </div>
+                            </div>
+                     <div class="col">
+                        <div class="accordion-header">
+                             <img src="../images/docs/kabab.jpeg">
+                             <div class="accordion-body">
+                               <input type="radio" class="radio" name="mils" id="kabab"><span>chicken kabab</span>>
+                                <span>&#8377;150</span>
+                             </div>
+                        </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+         </div>
+         </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-primary w-100" data-bs-target="#addon" data-bs-toggle="collapse">add on</button>
+                </div>
+                <div class="accordion-collapse collapse" id="addon" data-bs-parent="#ban">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col">
+                             <div class="accordion-header">
+                               <img src="../images/docs/add1.jpeg">
+                               <div class="accordion-body">
+                                <input type="radio" id="add1" class="add"><span>add chicken chill powder</span><span>&#8377;100</span>
+                               </div>
+                             </div>
+                            </div>
+                            <div class="col">
+                                <div class="accordion-header">
+                                    <img src="../images/docs/add2.jpeg">
+                                    <div clas="accordion-body">
+                                        <input type="radio" class="add2"><span>add chips</span><span>&#8377;50</span>
+        
+                                    </div>
+                                </div>
+                               </div>
+                       </div>
+                   
+                       <button class="btn btn-danger w-100" data-bs-target="#order" data-bs-toggle="modal" onclick="Order()">order</button>
+                       <div class="modal" id="order">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>your order summery</h3>
+                                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                               <div class="modal-body">
+                                    <dl>
+                                       <dt>costamer name:</dt> 
+                                       <dd id="iblname"></dd>
+                                       <dt>costamer nomber:</dt>
+                                       <dd id="iblno"></dd>
+                                       <dt>costamer milss:</dt>
+                                       <dd id="iblmill"></dd>
+                                       <dt>add mills:</dt>
+                                       <dd id="ibladd"></dd>
+                                       <dt>total amount:</dt>
+                                       <dd id="iblamount"></dd>
+                                    </dl>
+                               </div>
+                               <div></div>
+                            </div>
+
+                        </div>
+
+                       </div>
+                </div>
+            </div>
+         </div>
+        </div>
+    </section>
+</body>
+</html>
